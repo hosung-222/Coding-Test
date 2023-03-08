@@ -20,7 +20,7 @@ def solution(fees, records):
     
             del dic[x[1]]
     
-    if len(dic):
+    if dic:
         for num, time in dic.items():
             t = time.split(":")
             hour = 23 - int(t[0])
@@ -44,4 +44,3 @@ def solution(fees, records):
             answer.append(fees[1])
             
     return answer
-    
