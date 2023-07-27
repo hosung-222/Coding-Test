@@ -1,4 +1,3 @@
-from collections import deque
 def solution(tickets):
     answer = []
     dic = {}
@@ -13,7 +12,6 @@ def solution(tickets):
         dic[k].sort(reverse=True)
     
     while q:
-        print(q)
         top = q[-1]
         #더 이상 갈 수 있는 도착지가 없을때
         if (top not in dic) or (not dic[top]):
