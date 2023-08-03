@@ -13,6 +13,6 @@ def solution(operations):
                     heapq.heappop(q)
     
     if q:
-        return (max(q), min(q))
+        return [max(q), min(q)]
     else:
         return [0,0]
