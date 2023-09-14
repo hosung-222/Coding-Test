@@ -1,11 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.stream.IntStream;
 class Solution {
-    public List<Integer> solution(int n, int k) {
-        List<Integer> answer = new ArrayList<>(); 
-        for (int i = k; i <=n ; i += k) {
-            answer.add(i);
-        }
-        return answer;
+    public int[] solution(int n, int k) {
+        return IntStream.rangeClosed(1,n).filter(i -> i %k ==0).toArray();
     }
 }
