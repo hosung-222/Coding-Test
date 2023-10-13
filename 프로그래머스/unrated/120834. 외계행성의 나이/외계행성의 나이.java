@@ -5,9 +5,9 @@ class Solution {
         String[] arr = sage.split("");
         for (String c : arr){
             int temp = Integer.parseInt(c);
-            temp += 65;
+            temp += 97;
             answer.append((char) temp);
         }
-        return answer.toString().toLowerCase();
+        return answer.toString();
     }
 }
