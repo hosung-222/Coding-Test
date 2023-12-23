@@ -1,4 +1,5 @@
 import string
+tmp = string.digits + string.ascii_uppercase
 def solution(n, t, m, p):
     list = ''
     answer = ''
@@ -8,8 +9,6 @@ def solution(n, t, m, p):
         answer += list[(p-1)+i*m]
     return answer
 
-
-tmp = string.digits + string.ascii_uppercase
 def convert(num, base):
     q,r = divmod(num, base)
     if q == 0:
