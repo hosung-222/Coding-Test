@@ -1,8 +1,8 @@
-from collections import deque
+from collections import deque, defaultdict
 
 def solution(gems):
     gem_types = len(set(gems)) 
-    gem_count = {}
+    gem_count = defaultdict(int)
     min_length = len(gems)
     min_range = [0, len(gems) - 1]
 
@@ -10,8 +10,7 @@ def solution(gems):
     start = 0
 
     for end, gem in enumerate(gems):
-        if gem not in gem_count:
-            gem_count[gem] = 0
+    
         gem_count[gem] += 1
         temp.append(gem)
 
