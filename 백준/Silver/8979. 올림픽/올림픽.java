@@ -5,10 +5,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         int n = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
-        int arr[][] = new int[n+1][4];
-        int rank = 1;
+
+        int arr[][] = new int[n + 1][3];
 
         for (int i = 1; i <= n; i++) {
             st = new StringTokenizer(br.readLine());
@@ -21,15 +22,17 @@ public class Main {
             arr[index][2] = bronze;
         }
 
+        int rank = 1; 
         for (int i = 1; i <= n; i++) {
-            if (arr[i][0] > arr[c][0]){
-                rank ++;
-            } else if (arr[i][0] == arr[c][0] && arr[i][1] > arr[c][1]) {
-                rank ++;
-            } else if (arr[i][0] == arr[c][0] && arr[i][1] == arr[c][1] && arr[i][2] > arr[i][2]) {
-                rank ++;
+     
+            if (i == c) continue;
+            if (arr[i][0] > arr[c][0] ||
+               (arr[i][0] == arr[c][0] && arr[i][1] > arr[c][1]) ||
+               (arr[i][0] == arr[c][0] && arr[i][1] == arr[c][1] && arr[i][2] > arr[c][2])) {
+                rank++;
             }
         }
+
         System.out.println(rank);
         br.close();
     }
