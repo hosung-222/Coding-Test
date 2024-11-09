@@ -4,6 +4,7 @@ balls = list(input().strip())
 red_balls = balls.copy()
 blue_balls = balls.copy()
 
+
 result = int(1e9)
 find = False
 count = 0
@@ -34,12 +35,11 @@ for i in range(len(blue_balls)-1, -1, -1):
         count += 1
 result = min(result, count)
 count = 0
-b_find = False
+find = False
 for i in range(len(blue_balls)):
     if blue_balls[i] == "R":
         find = True
     
     if blue_balls[i] == "B" and find == True:
         count += 1
-result = min(result, count)
 print(min(result, count))
