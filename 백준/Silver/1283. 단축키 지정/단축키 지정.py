@@ -1,30 +1,32 @@
 n = int(input())
-
-hotkeys = []
+words = []
+hotkey = []
 for _ in range(n):
-    options = input().split()
-    found = False
-    result = ""
+    find = False
+    temp = list(input().split())
+    new_word = ""
+    for c in temp:
+        if c[0].upper() not in hotkey and not find:
+            new_word += "[" + c[0] +"]" +c[1:] + " "
+            hotkey.append(c[0].upper())
+            find = True
+        else:
+            new_word += c + " "
+    if find:
+        words.append(new_word)
 
-    # 각 단어의 첫 글자를 검사
-    for idx, word in enumerate(options):
-        if word[0].upper() not in hotkeys and not found:
-            hotkeys.append(word[0].upper())
-            found = True
-            word = word.replace(word[0], "[" + word[0] + "]", 1)
-        result += word + " "
-
-    # 첫 글자로 단축키를 찾지 못한 경우
-    if not found:
-        result = ""
-        for word in options:
-            new_word = ""
-            for char in word:
-                if char.upper() not in hotkeys and not found:
-                    hotkeys.append(char.upper())
-                    found = True
-                    new_word += "[" + char + "]"
+    if not find:
+        new_word = ""
+        for s in temp:
+            for c in s:
+                if c.upper() not in hotkey and not find:
+                    new_word += "[" + c + "]"
+                    hotkey.append(c.upper())
+                    find = True
                 else:
-                    new_word += char
-            result += new_word + " "
-    print(result.strip())
+                    new_word += c
+            new_word += " "
+        words.append(new_word)
+
+for w in words:
+    print(w)
