@@ -1,10 +1,9 @@
 import sys
 sys.setrecursionlimit(1 << 25)
 def find(u):
-    while parent[u] != u:
-        parent[u] = parent[parent[u]]
-        u = parent[u]
-    return u
+    if parent[u] != u:
+        parent[u] = find(parent[u])
+    return parent[u]
 
 def union(u, v):
     u_root = find(u)
